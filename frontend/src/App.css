@@ -1,0 +1,627 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  color: #262626;
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.create-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.create-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Loading Spinner */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  flex-direction: column;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #833AB4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Error Message */
+.error-container {
+  background: #ffebee;
+  border: 1px solid #ffcdd2;
+  color: #c62828;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.error-message {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.retry-btn {
+  background: #c62828;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.retry-btn:hover {
+  background: #b71c1c;
+}
+
+/* Create Post Modal */
+.create-post-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.create-post-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #262626;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #f5f5f5;
+  color: #262626;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #833AB4;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #833AB4;
+}
+
+/* Upload Options */
+.upload-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.camera-btn {
+  background: linear-gradient(45deg, #833AB4, #C13584);
+  color: white;
+  border: none;
+}
+
+.camera-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3);
+}
+
+/* Camera Interface */
+.camera-interface {
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1rem 0;
+  position: relative;
+  border: 2px solid #833AB4;
+  box-shadow: 0 4px 20px rgba(131, 58, 180, 0.3);
+}
+
+.camera-video {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  background: #000;
+  border-radius: 10px;
+}
+
+.camera-video::-webkit-media-controls {
+  display: none !important;
+}
+
+.camera-video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.camera-controls {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.capture-btn {
+  background: #fff;
+  color: #333;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.capture-btn:hover {
+  background: #f0f0f0;
+  transform: scale(1.1);
+}
+
+/* File Upload */
+.file-upload-area {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.file-upload-area:hover {
+  border-color: #833AB4;
+  background: #f9f9f9;
+}
+
+.file-upload-area.dragover {
+  border-color: #833AB4;
+  background: #f0f0ff;
+}
+
+.upload-icon {
+  font-size: 2rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.upload-text {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.upload-hint {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* Image Preview */
+.image-preview {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.preview-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.remove-image {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #833AB4, #C13584);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3);
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: #f5f5f5;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.btn-secondary:hover {
+  background: #e0e0e0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+/* Timeline */
+.timeline {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.refresh-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.refresh-btn {
+  background: #f5f5f5;
+  color: #666;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+  background: #e0e0e0;
+}
+
+/* Post Card */
+.post-card {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Post Image Styling */
+.post-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  background: #f5f5f5;
+  transition: opacity 0.3s ease;
+}
+
+.post-image:not([src]) {
+  opacity: 0;
+}
+
+.post-image[src] {
+  opacity: 1;
+}
+
+.post-header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.username {
+  font-weight: 600;
+  color: #262626;
+  flex: 1;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.post-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: 1rem;
+}
+
+.post-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.action-btn:hover {
+  background: #f5f5f5;
+}
+
+.action-btn.liked {
+  color: #e91e63;
+}
+
+.action-count {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.post-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.post-caption {
+  color: #262626;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .create-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .timeline {
+    padding: 0.5rem;
+  }
+  
+  .post-card {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
+  
+  .post-image {
+    height: 300px;
+  }
+  
+  .create-post-content {
+    padding: 1.5rem;
+    margin: 0.5rem;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .post-actions {
+    justify-content: space-around;
+  }
+  
+  .post-stats {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  /* Mobile camera interface */
+  .upload-options {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .camera-video {
+    height: 250px;
+  }
+
+  .camera-controls {
+    bottom: 0.5rem;
+  }
+
+  .capture-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.3rem;
+  }
+}
