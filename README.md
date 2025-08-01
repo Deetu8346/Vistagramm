@@ -165,15 +165,10 @@ POST /api/posts/:id/like
 ## 🚀 Deployment
 
 ### Backend Deployment (Render/Railway/Fly.io)
-1. Set environment variables in platform dashboard
-2. Connect GitHub repository
-3. Deploy with build command: `cd backend && npm install`
-4. Start command: `cd backend && npm start`
+1. link: https://vistagramm.onrender.com
 
 ### Frontend Deployment (Vercel/Netlify)
-1. Build command: `cd frontend && npm run build`
-2. Publish directory: `frontend/build`
-3. Set environment variable: `REACT_APP_API_URL`
+1. link: https://vistagramm-mtw1qljwn-deetu8346s-projects.vercel.app/
 
 ### Production Considerations
 - Set `NODE_ENV=production`
@@ -217,17 +212,6 @@ npm test
 - **File Upload Validation** - Image type checking
 - **CORS Configuration** - Cross-origin protection
 - **Error Handling** - Secure error responses
-
-## 🎯 Future Enhancements
-
-- User authentication and profiles
-- Comments on posts
-- Real-time notifications
-- Image filters and editing
-- Story features
-- Direct messaging
-- Advanced search and hashtags
-- Analytics dashboard
 
 ## 📝 License
 
