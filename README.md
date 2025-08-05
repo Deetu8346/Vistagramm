@@ -168,7 +168,7 @@ POST /api/posts/:id/like
 1. link: https://vistagramm.onrender.com
 
 ### Frontend Deployment (Vercel/Netlify)
-1. link: https://vistagramm-mtw1qljwn-deetu8346s-projects.vercel.app/
+1. link: https://vistagramm.vercel.app/
 
 ### Production Considerations
 - Set `NODE_ENV=production`
